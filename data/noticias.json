@@ -1,0 +1,104 @@
+[
+  {
+    "id": 1,
+    "title": "La IA Generativa Redefine el Desarrollo de Software en 2026",
+    "subtitle": "Modelos de lenguaje avanzados automatizan el 40% de las tareas de codificación, transformando el rol del ingeniero de software.",
+    "category": "Inteligencia Artificial",
+    "author": "Claudia Méndez",
+    "date": "12 Sep 2026",
+    "readTime": "6 min",
+    "image": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=700&fit=crop&auto=format",
+    "featured": true,
+    "body": [
+      "El panorama del desarrollo de software ha cambiado radicalmente en los últimos doce meses. Los modelos de inteligencia artificial generativa —encabezados por sistemas capaces de comprender contextos complejos de código fuente— han comenzado a automatizar tareas que antes requerían horas de trabajo especializado.",
+      "Según el último informe de Stack Overflow, el 68% de los equipos de ingeniería en empresas Fortune 500 ya utilizan asistentes de IA como parte integral de su flujo de trabajo diario. No se trata únicamente de autocompletar líneas: estos sistemas proponen arquitecturas completas, detectan vulnerabilidades de seguridad y generan documentación técnica en tiempo real.",
+      "La discusión en la industria ya no gira en torno a si la IA reemplazará a los programadores, sino a qué nuevas competencias deberán desarrollar. Los ingenieros más demandados de 2026 son quienes saben formular los problemas correctamente para que la IA los resuelva —una habilidad que algunos llaman 'ingeniería de prompts de producción'.",
+      "El impacto también se siente en la educación. Universidades como el MIT, Stanford y el ITESM han rediseñado sus currículos de Ciencias de la Computación para incorporar razonamiento sobre sistemas de IA, ética algorítmica y colaboración humano-máquina como materias troncales."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "SpaceX Logra el Primer Vuelo Tripulado a Marte",
+    "subtitle": "La misión Starship MX-1 despegó desde Boca Chica con seis astronautas y 40 toneladas de carga científica.",
+    "category": "Exploración Espacial",
+    "author": "Rafael Torres",
+    "date": "10 Sep 2026",
+    "readTime": "8 min",
+    "image": "https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=1200&h=700&fit=crop&auto=format",
+    "featured": true,
+    "body": [
+      "A las 04:32 UTC del pasado martes, la humanidad cruzó una nueva frontera: por primera vez en la historia, seis astronautas abandonaron la órbita terrestre con destino a Marte. La misión Starship MX-1 de SpaceX, en colaboración con la NASA y la Agencia Espacial Europea, representa el culmen de dos décadas de ingeniería aeroespacial.",
+      "La nave, de 120 metros de altura y propulsada por 33 motores Raptor de segunda generación, transporta 40 toneladas de carga científica que incluye laboratorios de biología, sistemas de prospección mineral y los módulos de habitación que servirán de base en la superficie marciana durante los 18 meses que durará la misión.",
+      "El comandante Hiroshi Nakamura, veterano de tres misiones a la Estación Espacial Internacional, describió el momento del despegue como 'la experiencia más intensa y hermosa de mi vida'. La tripulación multinacional incluye dos estadounidenses, una española, un japonés, una brasileña y un emiratí.",
+      "El trayecto de 7 meses hacia el planeta rojo pondrá a prueba tanto la resistencia física de los astronautas como los sistemas de soporte vital de nueva generación desarrollados específicamente para viajes de larga duración en el espacio profundo."
+    ]
+  },
+  {
+    "id": 3,
+    "title": "El Gran Apagón del Ciberespacio: Análisis del Ataque Global",
+    "subtitle": "Un ransomware coordinado paralizó infraestructura crítica en 23 países durante 72 horas.",
+    "category": "Ciberseguridad",
+    "author": "Valentina Ruiz",
+    "date": "8 Sep 2026",
+    "readTime": "7 min",
+    "image": "https://images.unsplash.com/photo-1666875758412-5957b60d7969?w=1200&h=700&fit=crop&auto=format",
+    "featured": false,
+    "body": [
+      "El pasado mes de agosto quedará registrado como el mayor ciberataque coordinado de la historia. Un ransomware de sofisticación sin precedentes —denominado 'Erebus' por los analistas— logró infiltrarse en redes de energía eléctrica, hospitales, puertos marítimos y aeropuertos de 23 países simultáneamente.",
+      "Las pérdidas económicas directas superan los 340.000 millones de dólares, según estimaciones preliminares del Fondo Monetario Internacional. Más preocupante aún: el ataque expuso las vulnerabilidades sistémicas de infraestructuras críticas que durante años han operado con software obsoleto sin parches de seguridad.",
+      "Los investigadores del grupo Mandiant y del CERT-EU coinciden en señalar que Erebus fue diseñado con un nivel de refinamiento que apunta a un actor estatal. El malware utilizó técnicas de evasión de detección basadas en aprendizaje automático, adaptando su comportamiento en tiempo real para evitar los sistemas antivirus convencionales.",
+      "La respuesta internacional no tardó en llegar: la Unión Europea convocó una sesión de emergencia del Consejo Europeo y el G7 acordó la creación de un fondo de 50.000 millones para reforzar la ciberseguridad de infraestructuras críticas en los próximos cinco años."
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Tesla Presenta el Model Ω: Autonomía de 1.200 km en Carga Sólida",
+    "subtitle": "La nueva batería de estado sólido redefine los límites del vehículo eléctrico con tecnología de electrolito cerámico.",
+    "category": "Movilidad Eléctrica",
+    "author": "Andrés Fontaine",
+    "date": "6 Sep 2026",
+    "readTime": "5 min",
+    "image": "https://images.unsplash.com/photo-1647733258571-f001185e80c3?w=1200&h=700&fit=crop&auto=format",
+    "featured": false,
+    "body": [
+      "En su evento anual en el Gigafactory de Austin, Elon Musk presentó el Model Ω, el primer vehículo de producción masiva equipado con una batería de estado sólido de electrolito cerámico. La cifra más impactante: 1.200 kilómetros de autonomía real, medida en ciclo WLTP, con un tiempo de carga del 10% al 80% de apenas 12 minutos.",
+      "La tecnología de estado sólido ha sido la promesa no cumplida de la industria durante más de una década. Tesla logró resolver los problemas de escala industrial asociados a estos materiales mediante un proceso de sinterización a presión que permite fabricar las celdas en volúmenes comparables a las baterías de iones de litio convencionales.",
+      "El precio de salida del Model Ω es de 68.000 dólares, lo que lo posiciona en el segmento premium. Sin embargo, la compañía anunció que la tecnología de electrolito sólido llegará al Model 3 en una versión más económica para 2028.",
+      "Los analistas de Wood Mackenzie estiman que este anuncio podría acelerar en tres años el punto de inflexión en el que los vehículos eléctricos superen a los de combustión en ventas globales, un momento que hasta ahora se proyectaba para 2032."
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Computación Cuántica Alcanza 10.000 Qubits Estables",
+    "subtitle": "IBM y Google rivalizan con arquitecturas radicalmente distintas mientras la carrera cuántica entra en su fase decisiva.",
+    "category": "Computación Cuántica",
+    "author": "Sofía Guerrero",
+    "date": "4 Sep 2026",
+    "readTime": "6 min",
+    "image": "https://images.unsplash.com/photo-1674027444485-cec3da58eef4?w=1200&h=700&fit=crop&auto=format",
+    "featured": false,
+    "body": [
+      "La barrera de los 10.000 qubits estables ha caído. IBM anunció esta semana que su procesador Condor-X ha superado ese umbral con tasas de error por debajo del 0,001% por operación, un logro que la comunidad científica consideraba inalcanzable antes de 2030.",
+      "No menos impresionante es el enfoque alternativo de Google, cuyo sistema basado en qubits topológicos alcanzó los 8.200 qubits con una estabilidad aún mayor. La diferencia arquitectónica entre ambos sistemas ilustra perfectamente que no existe un único camino hacia la computación cuántica práctica.",
+      "Las implicaciones para la criptografía son inmediatas y preocupantes. Los sistemas de cifrado RSA-2048 y ECC, que protegen la mayor parte de las comunicaciones digitales globales, serán vulnerables en un horizonte de 3 a 5 años si se mantiene este ritmo de progreso. El NIST ya ha publicado los nuevos estándares de criptografía post-cuántica, pero la migración de infraestructuras será un desafío monumental.",
+      "En el lado positivo, la química cuántica y el descubrimiento de fármacos son los campos que más inmediatamente se beneficiarán de este progreso. Empresas como Moderna y Pfizer ya tienen acuerdos de acceso temprano con IBM y Google para simular interacciones moleculares complejas."
+    ]
+  },
+  {
+    "id": 6,
+    "title": "La Realidad Mixta Llega al Quirófano: Cirugías Guiadas por Hologramas",
+    "subtitle": "El Hospital Universitario de Múnich realiza 500 cirugías cardíacas con precisión submilimétrica usando Apple Vision Pro quirúrgico.",
+    "category": "MedTech",
+    "author": "Luis Vargas",
+    "date": "2 Sep 2026",
+    "readTime": "5 min",
+    "image": "https://images.unsplash.com/photo-1709120395858-92f1c7c577f5?w=1200&h=700&fit=crop&auto=format",
+    "featured": false,
+    "body": [
+      "En el salón de operaciones 7 del Hospital Universitario Ludwig Maximilian de Múnich, el cirujano cardiovascular Johannes Braun no necesita apartar la vista del campo operatorio para consultar las imágenes del escáner. Los datos vitales del paciente, la tomografía tridimensional de su corazón y las instrucciones del protocolo quirúrgico flotan ante sus ojos, superpuestos con precisión sobre la anatomía real.",
+      "La versión quirúrgica del Apple Vision Pro, desarrollada en colaboración con Brainlab y aprobada por la FDA en enero de 2026, ha completado 500 procedimientos cardíacos con una tasa de complicaciones 34% inferior a la media de cirugías convencionales comparables.",
+      "La tecnología no se limita a la visualización: sensores de profundidad y un sistema de seguimiento ocular de 120 Hz permiten al sistema alertar al cirujano cuando sus movimientos se acercan a estructuras críticas, funcionando como un sistema de asistencia activa en tiempo real.",
+      "La barrera del costo sigue siendo el principal obstáculo para la adopción masiva. Cada unidad tiene un precio de 85.000 dólares, y el entrenamiento especializado requiere seis meses. Sin embargo, el análisis de coste-beneficio presentado en el New England Journal of Medicine sugiere que la reducción de complicaciones genera un ahorro neto positivo en hospitales de más de 200 camas."
+    ]
+  }
+]

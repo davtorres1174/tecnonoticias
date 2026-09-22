@@ -1,0 +1,103 @@
+<!-- Estructura HTML5 basica (doctype, html, head, body): visto en Lectura fundamental 2 - HTML -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Etiqueta <meta> con charset y viewport para HTML5: visto en Lectura fundamental 2 - HTML (seccion HTML5) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Etiqueta <title>: visto en Lectura fundamental 2 - HTML -->
+  <title>TecnoNoticias · El futuro, hoy</title>
+  <meta name="description" content="Periodico digital de tecnologia. Noticias verificadas sobre IA, ciberseguridad, exploracion espacial y mas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Vinculacion de hoja de estilos externa con <link href type rel>: visto en Lectura fundamental 3 - CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="home">
+  <!-- Header inyectado por JS (common.js) -->
+  <!-- Etiqueta semantica <header> de HTML5: visto en Lectura fundamental 2 - HTML -->
+  <header class="header" id="site-header"></header>
+
+  <!-- Etiqueta semantica <main> de HTML5: visto en Lectura fundamental 2 - HTML -->
+  <main>
+    <!-- HERO -->
+    <!-- Etiqueta semantica <section> de HTML5: visto en Lectura fundamental 2 - HTML -->
+    <section class="hero">
+      <!-- Etiqueta <div> para agrupar contenido: visto en Lectura fundamental 2 - HTML -->
+      <div class="hero-bg">
+        <!-- Etiqueta <img> con atributos src y alt: visto en Lectura fundamental 2 - HTML -->
+        <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1600&h=900&fit=crop&auto=format" alt="Tecnologia">
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-overlay-2"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <!-- Etiqueta <span> para agrupar texto en linea: visto en Lectura fundamental 2 - HTML -->
+          <span class="hero-eyebrow-line"></span>
+          <span class="hero-eyebrow-text">El futuro, hoy</span>
+        </div>
+        <!-- Encabezado <h1> como titulo principal + <em> para enfasis + <br> como salto de linea: visto en Lectura fundamental 2 - HTML -->
+        <h1 class="hero-title">Tecnología que<br><em>transforma</em><br>el mundo.</h1>
+        <!-- Etiqueta <p> para parrafos: visto en Lectura fundamental 2 - HTML -->
+        <p class="hero-subtitle">Análisis riguroso, noticias verificadas y perspectiva editorial sobre los avances tecnológicos que están redefiniendo la civilización.</p>
+        <div class="hero-actions">
+          <!-- Etiqueta <a> con atributo href como hipervinculo: visto en Lectura fundamental 2 - HTML -->
+          <a href="noticias.html" class="btn btn-primary">Explorar noticias</a>
+          <a href="contacto.html" class="btn btn-outline">Contactar</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- PORTADA (destacadas) -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="section-title-bar"></span>
+          <!-- Encabezado <h2> como subtitulo: visto en Lectura fundamental 2 - HTML -->
+          <h2>Portada</h2>
+        </div>
+        <a href="noticias.html" class="section-link">Ver todas →</a>
+      </div>
+      <div class="grid grid-2" id="destacadas">
+        <!-- Renderizado por JS -->
+      </div>
+    </section>
+
+    <!-- MAS NOTICIAS -->
+    <section class="section" style="padding-top: 0;">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="section-title-bar"></span>
+          <h2>Más noticias</h2>
+        </div>
+      </div>
+      <div class="grid grid-4" id="mas-noticias">
+        <!-- Renderizado por JS -->
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="section" style="padding-top: 0;">
+      <div class="cta-banner">
+        <div class="cta-banner-content">
+          <!-- Encabezado <h3> como sub-subtitulo: visto en Lectura fundamental 2 - HTML -->
+          <h3 class="cta-banner-title">No te pierdas ninguna historia.</h3>
+          <p class="cta-banner-text">Guarda tus artículos favoritos y accede a ellos cuando quieras.</p>
+        </div>
+        <a href="favoritos.html" class="btn-white">Mis favoritos</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer inyectado por JS -->
+  <!-- Etiqueta semantica <footer> de HTML5: visto en Lectura fundamental 2 - HTML -->
+  <footer class="footer" id="site-footer"></footer>
+
+  <!-- Etiqueta <script> para incluir JavaScript, arquitectura cliente/servidor: visto en Lectura fundamental 1 - Introduccion al Desarrollo Web -->
+  <script src="js/common.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

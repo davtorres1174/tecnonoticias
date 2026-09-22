@@ -1,0 +1,22 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (por si se agregan tools)
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# Logs
+*.log
+
+# Temporales
+*.tmp
+*.bak

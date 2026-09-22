@@ -1,0 +1,96 @@
+<!-- Estructura HTML5 basica (doctype, html, head, meta, title, link, body): visto en Lectura fundamental 2 - HTML -->
+<!-- Vinculacion de hoja de estilos externa <link rel="stylesheet">: visto en Lectura fundamental 3 - CSS -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto · TecnoNoticias</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="contact">
+  <header class="header" id="site-header"></header>
+
+  <main>
+    <section class="section">
+      <div class="contact-layout">
+        <!-- Info izquierda -->
+        <div class="contact-info">
+          <div class="page-eyebrow">
+            <span class="page-eyebrow-line"></span>
+            <span class="page-eyebrow-text">Contacto</span>
+          </div>
+          <h1>¿Tienes una historia?<br><em>Cuéntanosla.</em></h1>
+          <p>En TecnoPress siempre estamos atentos a pistas, filtraciones y colaboraciones. Si eres un investigador, emprendedor, científico o simplemente tienes algo importante que compartir, escríbenos.</p>
+
+          <div class="contact-details">
+            <div class="contact-detail">
+              <span class="contact-detail-icon" aria-hidden="true">📍</span>
+              <div>
+                <div class="contact-detail-label">Redacción</div>
+                <div class="contact-detail-value">Bogotá, Colombia</div>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail-icon" aria-hidden="true">✉️</span>
+              <div>
+                <div class="contact-detail-label">Email editorial</div>
+                <div class="contact-detail-value">jdavidquintero2@poligran.edu.co</div>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail-icon" aria-hidden="true">📞</span>
+              <div>
+                <div class="contact-detail-label">Teléfono</div>
+                <div class="contact-detail-value">+56 311 325 4556</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario derecha -->
+        <div id="contact-right">
+          <!-- Etiqueta <form>: visto en Lectura fundamental 2 - HTML (seccion Construccion de Formularios) -->
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-field" data-field="nombre">
+                <!-- Etiqueta <label> asociada a un campo por su atributo for: visto en Lectura fundamental 2 - HTML (Construccion de Formularios) -->
+                <label for="nombre">Nombre <span class="required">*</span></label>
+                <!-- Etiqueta <input> con atributos type, id, name y placeholder: visto en Lectura fundamental 2 - HTML (Construccion de Formularios) -->
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre...">
+                <div class="form-error"></div>
+              </div>
+              <div class="form-field" data-field="email">
+                <label for="email">Correo electrónico <span class="required">*</span></label>
+                <input type="email" id="email" name="email" placeholder="Tu correo electronico...">
+                <div class="form-error"></div>
+              </div>
+            </div>
+            <div class="form-field" data-field="asunto">
+              <label for="asunto">Asunto <span class="required">*</span></label>
+              <input type="text" id="asunto" name="asunto" placeholder="Tu asunto...">
+              <div class="form-error"></div>
+            </div>
+            <div class="form-field" data-field="mensaje">
+              <label for="mensaje">Mensaje <span class="required">*</span></label>
+              <!-- Etiqueta <textarea> para campo multilinea: visto en Lectura fundamental 2 - HTML (Construccion de Formularios) -->
+              <textarea id="mensaje" name="mensaje" rows="6" placeholder="Tu mensaje..."></textarea>
+              <div class="form-error"></div>
+            </div>
+            <!-- Etiqueta <button> con type="submit" para enviar el formulario: visto en Lectura fundamental 2 - HTML (Construccion de Formularios) -->
+            <button type="submit" class="btn btn-primary btn-block">Enviar mensaje</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="site-footer"></footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/contacto.js"></script>
+</body>
+</html>
