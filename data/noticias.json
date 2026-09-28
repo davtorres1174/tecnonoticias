@@ -7,7 +7,7 @@
     "author": "Claudia Méndez",
     "date": "12 Sep 2026",
     "readTime": "6 min",
-    "image": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=700&fit=crop&auto=format",
+    "image": "img/ia-generativa.jpg",
     "featured": true,
     "body": [
       "El panorama del desarrollo de software ha cambiado radicalmente en los últimos doce meses. Los modelos de inteligencia artificial generativa —encabezados por sistemas capaces de comprender contextos complejos de código fuente— han comenzado a automatizar tareas que antes requerían horas de trabajo especializado.",
@@ -24,7 +24,7 @@
     "author": "Rafael Torres",
     "date": "10 Sep 2026",
     "readTime": "8 min",
-    "image": "https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=1200&h=700&fit=crop&auto=format",
+    "image": "img/spacex-marte.jpg",
     "featured": true,
     "body": [
       "A las 04:32 UTC del pasado martes, la humanidad cruzó una nueva frontera: por primera vez en la historia, seis astronautas abandonaron la órbita terrestre con destino a Marte. La misión Starship MX-1 de SpaceX, en colaboración con la NASA y la Agencia Espacial Europea, representa el culmen de dos décadas de ingeniería aeroespacial.",
@@ -41,7 +41,7 @@
     "author": "Valentina Ruiz",
     "date": "8 Sep 2026",
     "readTime": "7 min",
-    "image": "https://images.unsplash.com/photo-1666875758412-5957b60d7969?w=1200&h=700&fit=crop&auto=format",
+    "image": "img/ciberataque-global.jpg",
     "featured": false,
     "body": [
       "El pasado mes de agosto quedará registrado como el mayor ciberataque coordinado de la historia. Un ransomware de sofisticación sin precedentes —denominado 'Erebus' por los analistas— logró infiltrarse en redes de energía eléctrica, hospitales, puertos marítimos y aeropuertos de 23 países simultáneamente.",
@@ -58,7 +58,7 @@
     "author": "Andrés Fontaine",
     "date": "6 Sep 2026",
     "readTime": "5 min",
-    "image": "https://images.unsplash.com/photo-1647733258571-f001185e80c3?w=1200&h=700&fit=crop&auto=format",
+    "image": "img/tesla-model-omega.jpg",
     "featured": false,
     "body": [
       "En su evento anual en el Gigafactory de Austin, Elon Musk presentó el Model Ω, el primer vehículo de producción masiva equipado con una batería de estado sólido de electrolito cerámico. La cifra más impactante: 1.200 kilómetros de autonomía real, medida en ciclo WLTP, con un tiempo de carga del 10% al 80% de apenas 12 minutos.",
@@ -75,7 +75,7 @@
     "author": "Sofía Guerrero",
     "date": "4 Sep 2026",
     "readTime": "6 min",
-    "image": "https://images.unsplash.com/photo-1674027444485-cec3da58eef4?w=1200&h=700&fit=crop&auto=format",
+    "image": "img/computacion-cuantica.jpg",
     "featured": false,
     "body": [
       "La barrera de los 10.000 qubits estables ha caído. IBM anunció esta semana que su procesador Condor-X ha superado ese umbral con tasas de error por debajo del 0,001% por operación, un logro que la comunidad científica consideraba inalcanzable antes de 2030.",
@@ -92,7 +92,7 @@
     "author": "Luis Vargas",
     "date": "2 Sep 2026",
     "readTime": "5 min",
-    "image": "https://images.unsplash.com/photo-1709120395858-92f1c7c577f5?w=1200&h=700&fit=crop&auto=format",
+    "image": "img/realidad-mixta-quirofano.jpg",
     "featured": false,
     "body": [
       "En el salón de operaciones 7 del Hospital Universitario Ludwig Maximilian de Múnich, el cirujano cardiovascular Johannes Braun no necesita apartar la vista del campo operatorio para consultar las imágenes del escáner. Los datos vitales del paciente, la tomografía tridimensional de su corazón y las instrucciones del protocolo quirúrgico flotan ante sus ojos, superpuestos con precisión sobre la anatomía real.",

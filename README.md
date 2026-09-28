@@ -37,6 +37,7 @@ front tecnonoticias/
 │   └── contacto.js
 ├── data/
 │   └── noticias.json   # Base de datos local de noticias
+├── img/                # Imagenes del sitio (hero y noticias)
 └── README.md
 ```
 
@@ -47,7 +48,7 @@ front tecnonoticias/
 - **JavaScript** (ES6+) vanilla, con `fetch` para leer el JSON de noticias
 - **localStorage** para persistir la lista de favoritos entre sesiones
 - Fuentes **Playfair Display** e **Inter** desde Google Fonts
-- Imágenes desde **Unsplash** (uso educativo)
+- Imágenes locales en `img/`, obtenidas de **Unsplash** bajo la Licencia Unsplash (uso educativo)
 
 ## Funcionalidades implementadas
 
