@@ -1,0 +1,83 @@
+<!--
+  Plantilla de la tarjeta. Tipos de binding usados:
+  - Interpolacion {{ }} (notacion de doble llave, Lectura fundamental 7): textos (titulo, autor, fecha).
+  - Property binding [ ]: [src], [alt], [routerLink], [class.active].
+  - Event binding ( ): (click) en el boton de favorito.
+  Etiquetas <article>, <img>, <h3>, <p>, <a>: visto en Lectura fundamental 2 - HTML.
+-->
+@let n = noticia();
+
+<ng-template #corazon>
+  <svg width="14" height="14" viewBox="0 0 24 24" [attr.fill]="esFavorito() ? 'currentColor' : 'none'" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+  </svg>
+</ng-template>
+
+@switch (variante()) {
+  @case ('compact') {
+    <a [routerLink]="['/noticia', n.id]" class="card-compact">
+      <div class="card-compact-img">
+        <img [src]="n.image" [alt]="n.title" loading="lazy">
+      </div>
+      <div class="card-compact-info">
+        <span class="badge" [class]="claseBadge()">{{ n.category }}</span>
+        <h4 class="card-compact-title">{{ n.title }}</h4>
+        <span class="card-compact-meta">{{ n.date }} · {{ n.readTime }}</span>
+      </div>
+    </a>
+  }
+
+  @case ('featured') {
+    <article class="card-featured">
+      <a [routerLink]="['/noticia', n.id]" class="card-image">
+        <img [src]="n.image" [alt]="n.title" loading="lazy">
+        <div class="card-image-overlay"></div>
+        <div class="card-image-badge"><span class="badge" [class]="claseBadge()">{{ n.category }}</span></div>
+      </a>
+      <div class="card-body">
+        <a [routerLink]="['/noticia', n.id]"><h3 class="card-title">{{ n.title }}</h3></a>
+        <p class="card-desc">{{ n.subtitle }}</p>
+        <div class="card-meta">
+          <div class="card-meta-info">
+            <span>{{ n.author }}</span>
+            <span class="card-meta-dot"></span>
+            <span>{{ n.date }}</span>
+          </div>
+          <div class="card-actions">
+            <button type="button" class="btn-fav" [class.active]="esFavorito()" (click)="alternarFavorito($event)"
+                    [attr.aria-label]="esFavorito() ? 'Quitar de favoritos' : 'Agregar a favoritos'"
+                    [title]="esFavorito() ? 'Quitar de favoritos' : 'Agregar a favoritos'">
+              <ng-container [ngTemplateOutlet]="corazon" />
+            </button>
+            <a class="btn-more" [routerLink]="['/noticia', n.id]">Ver más →</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  }
+
+  @default {
+    <article class="card">
+      <a [routerLink]="['/noticia', n.id]" class="card-image">
+        <img [src]="n.image" [alt]="n.title" loading="lazy">
+        <div class="card-image-overlay"></div>
+        <div class="card-image-badge"><span class="badge" [class]="claseBadge()">{{ n.category }}</span></div>
+      </a>
+      <div class="card-body">
+        <a [routerLink]="['/noticia', n.id]"><h3 class="card-title">{{ n.title }}</h3></a>
+        <p class="card-desc">{{ n.subtitle }}</p>
+        <div class="card-footer">
+          <span>{{ n.readTime }} lectura</span>
+          <div class="card-actions">
+            <button type="button" class="btn-fav" [class.active]="esFavorito()" (click)="alternarFavorito($event)"
+                    [attr.aria-label]="esFavorito() ? 'Quitar de favoritos' : 'Agregar a favoritos'"
+                    [title]="esFavorito() ? 'Quitar de favoritos' : 'Agregar a favoritos'">
+              <ng-container [ngTemplateOutlet]="corazon" />
+            </button>
+            <a class="btn-more" [routerLink]="['/noticia', n.id]">Ver más →</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  }
+}

@@ -1,0 +1,89 @@
+<section class="section">
+  <div class="contact-layout">
+    <!-- Informacion de contacto (columna izquierda) -->
+    <div class="contact-info">
+      <div class="page-eyebrow">
+        <span class="page-eyebrow-line"></span>
+        <span class="page-eyebrow-text">Contacto</span>
+      </div>
+      <h1>¿Tienes una historia?<br><em>Cuéntanosla.</em></h1>
+      <p>En TecnoPress siempre estamos atentos a pistas, filtraciones y colaboraciones. Si eres un investigador, emprendedor, científico o simplemente tienes algo importante que compartir, escríbenos.</p>
+
+      <div class="contact-details">
+        <div class="contact-detail">
+          <span class="contact-detail-icon" aria-hidden="true">📍</span>
+          <div>
+            <div class="contact-detail-label">Redacción</div>
+            <div class="contact-detail-value">Bogotá, Colombia</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-icon" aria-hidden="true">✉️</span>
+          <div>
+            <div class="contact-detail-label">Email editorial</div>
+            <div class="contact-detail-value">jdavidquintero2&#64;poligran.edu.co</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-icon" aria-hidden="true">📞</span>
+          <div>
+            <div class="contact-detail-label">Teléfono</div>
+            <div class="contact-detail-value">+56 311 325 4556</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formulario (columna derecha) -->
+    <div>
+      @if (enviado()) {
+        <div class="form-success">
+          <div class="form-success-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <h3>Mensaje recibido</h3>
+          <p>Gracias por contactar con TecnoPress, {{ datos.nombre }}. Nuestro equipo editorial revisará tu mensaje y te responderá a {{ datos.email }} en un plazo de 24 a 48 horas.</p>
+          <button type="button" class="btn btn-outline" (click)="nuevoMensaje()">Enviar otro mensaje</button>
+        </div>
+      } @else {
+        <!-- Formulario: <form>, <label>, <input>, <textarea>, <button type="submit">:
+             visto en Lectura fundamental 2 - HTML (Construccion de Formularios).
+             novalidate desactiva los mensajes del navegador para usar los propios. -->
+        <form class="contact-form" (ngSubmit)="enviar()" novalidate>
+          <div class="form-row">
+            <div class="form-field" [class.has-error]="errores().nombre">
+              <label for="nombre">Nombre <span class="required">*</span></label>
+              <!-- Two-way binding: [(ngModel)] sincroniza el campo con datos.nombre -->
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre..."
+                     [(ngModel)]="datos.nombre" (ngModelChange)="limpiarError('nombre')">
+              <div class="form-error">{{ errores().nombre }}</div>
+            </div>
+            <div class="form-field" [class.has-error]="errores().email">
+              <label for="email">Correo electrónico <span class="required">*</span></label>
+              <input type="email" id="email" name="email" placeholder="Tu correo electrónico..."
+                     [(ngModel)]="datos.email" (ngModelChange)="limpiarError('email')">
+              <div class="form-error">{{ errores().email }}</div>
+            </div>
+          </div>
+          <div class="form-field" [class.has-error]="errores().asunto">
+            <label for="asunto">Asunto <span class="required">*</span></label>
+            <input type="text" id="asunto" name="asunto" placeholder="Tu asunto..."
+                   [(ngModel)]="datos.asunto" (ngModelChange)="limpiarError('asunto')">
+            <div class="form-error">{{ errores().asunto }}</div>
+          </div>
+          <div class="form-field" [class.has-error]="errores().mensaje">
+            <label for="mensaje">Mensaje <span class="required">*</span></label>
+            <textarea id="mensaje" name="mensaje" rows="6" placeholder="Tu mensaje..."
+                      [(ngModel)]="datos.mensaje" (ngModelChange)="limpiarError('mensaje')"></textarea>
+            <div class="form-error">{{ errores().mensaje }}</div>
+            <!-- Contador en vivo gracias al binding -->
+            <div class="form-hint">{{ datos.mensaje.trim().length }} / 20 caracteres mínimos</div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Enviar mensaje</button>
+        </form>
+      }
+    </div>
+  </div>
+</section>

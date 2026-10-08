@@ -1,88 +1,92 @@
-# TecnoNoticias
+# TecnoNoticias — versión Angular
 
-Aplicativo web tipo periódico digital especializado en tecnología, desarrollado como
-parte del módulo **Desarrollo de Front-End** del **Politécnico Gran Colombiano**
-(Materia Frontend, agosto 2026).
+Aplicativo web tipo periódico digital especializado en tecnología, desarrollado para el
+módulo **Desarrollo de Front-End** del **Politécnico Grancolombiano** (2026).
 
-Es la **Entrega 2 – Prototipo funcional** del proyecto, construida en HTML, CSS y
-JavaScript vanilla, siguiendo la maquetación aprobada en la Entrega 1.
+Es la **Entrega 3 – Entrega final**: migración a **Angular 19** del prototipo en HTML, CSS y
+JavaScript de la Entrega 2, más la gestión de noticias (CRUD: crear, editar y eliminar).
 
-## Vistas
+## Vistas y rutas
 
-| Página             | Archivo           | Descripción                                                                 |
-| ------------------ | ----------------- | --------------------------------------------------------------------------- |
-| Inicio             | `index.html`      | Hero, noticias destacadas, más noticias y banner de favoritos.              |
-| Listado de noticias| `noticias.html`   | Catálogo con filtros por categoría.                                         |
-| Detalle            | `detalle.html`    | Vista completa del artículo con sugerencias relacionadas (`?id=N`).         |
-| Favoritos          | `favoritos.html`  | Lista personal, persistida en `localStorage`.                               |
-| Contacto           | `contacto.html`   | Formulario con validaciones y mensaje de confirmación.                      |
+| Ruta | Componente | Descripción |
+|---|---|---|
+| `#/` | `HomeComponent` | Hero, portada con noticias destacadas, más noticias y banner de favoritos. |
+| `#/noticias` | `NoticiasComponent` | Catálogo con filtros por categoría. |
+| `#/noticia/:id` | `DetalleComponent` | Noticia completa, botones Guardar y Contactar, sugerencias relacionadas. |
+| `#/favoritos` | `FavoritosComponent` | Noticias guardadas por el usuario (localStorage). |
+| `#/gestion` | `GestionComponent` | **CRUD de noticias**: crear, editar y eliminar. |
+| `#/contacto` | `ContactoComponent` | Formulario con validaciones y mensaje de confirmación. |
 
-## Estructura del proyecto
+## Estructura
 
 ```
-front tecnonoticias/
-├── index.html
-├── noticias.html
-├── detalle.html
-├── favoritos.html
-├── contacto.html
-├── css/
-│   └── styles.css
-├── js/
-│   ├── common.js       # Header, footer, utilidades y favoritos
-│   ├── home.js
-│   ├── noticias.js
-│   ├── detalle.js
-│   ├── favoritos.js
-│   └── contacto.js
-├── data/
-│   └── noticias.json   # Base de datos local de noticias
-├── img/                # Imagenes del sitio (hero y noticias)
-└── README.md
+src/
+├── index.html                 Página base (fuentes, <base href>, <app-root>)
+├── styles.css                 Estilos globales (tema oscuro con acentos rojos)
+├── main.ts                    Arranque de la aplicación
+└── app/
+    ├── app.component.ts       Esqueleto: header + <router-outlet> + footer
+    ├── app.config.ts          HttpClient y Router (rutas con #)
+    ├── app.routes.ts          Rutas de las 6 vistas
+    ├── models/
+    │   └── noticia.model.ts   Interfaz Noticia, categorías y colores de badge
+    ├── services/
+    │   ├── noticias.service.ts    Carga del JSON + crear/editar/eliminar (localStorage)
+    │   └── favoritos.service.ts   Favoritos (localStorage)
+    ├── components/            Componentes reutilizables
+    │   ├── header/            Menú con contador de favoritos y menú móvil
+    │   ├── footer/
+    │   ├── logo/
+    │   └── noticia-card/      Tarjeta de noticia (variantes featured, default y compact)
+    └── pages/                 Un componente por vista
+        ├── home/  noticias/  detalle/  favoritos/  gestion/  contacto/
+public/
+├── data/noticias.json         Noticias base
+└── img/                       Imágenes locales
 ```
 
-## Tecnologías
+## Conceptos de Angular aplicados
 
-- **HTML5** semántico
-- **CSS3** con variables personalizadas (tema oscuro, acentos rojos)
-- **JavaScript** (ES6+) vanilla, con `fetch` para leer el JSON de noticias
-- **localStorage** para persistir la lista de favoritos entre sesiones
-- Fuentes **Playfair Display** e **Inter** desde Google Fonts
-- Imágenes locales en `img/`, obtenidas de **Unsplash** bajo la Licencia Unsplash (uso educativo)
+- **Componentes standalone**: uno por vista y otros reutilizables (header, footer, logo, tarjeta).
+- **Binding**:
+  - interpolación `{{ noticia.title }}`;
+  - property binding `[src]`, `[routerLink]`, `[class.active]`;
+  - event binding `(click)`, `(ngSubmit)`;
+  - two-way binding `[(ngModel)]` en los formularios de Contacto y Gestión (crear y editar).
+- **Entradas de componente** (`input()`): `<app-noticia-card [noticia]="n" variante="featured" />`.
+- **Servicios** con inyección de dependencias (`inject()`), compartidos por toda la aplicación.
+- **Signals** (`signal`, `computed`) para el estado: filtros, favoritos y lista de noticias.
+- **Router** con rutas parametrizadas (`noticia/:id`) y títulos por página.
+- **HttpClient** para leer `data/noticias.json`.
+- Control de flujo en plantillas: `@if`, `@for`, `@switch`.
 
-## Funcionalidades implementadas
+## Ejecutar en local
 
-1. **Renderizado dinámico** de noticias desde `data/noticias.json`.
-2. **Filtrado por categoría** en la vista de listado (Todas, IA, Ciberseguridad,
-   Exploración Espacial, Movilidad Eléctrica, Computación Cuántica, MedTech).
-3. **Gestión de favoritos** persistida en `localStorage` con contador en el header.
-4. **Vista de detalle** con parámetro `?id=` y noticias sugeridas.
-5. **Formulario de contacto** con validaciones (obligatoriedad, formato de email,
-   longitud mínima) y confirmación visual al enviar.
-6. **Diseño responsive** para escritorio, tablet y móvil.
+Se necesita Node.js 18 o superior y Angular CLI.
 
-## Cómo ejecutar el proyecto
-
-Como el sitio carga `data/noticias.json` mediante `fetch`, es necesario servirlo
-desde un servidor HTTP (no basta con abrir el `index.html` haciendo doble clic).
-
-Opciones sencillas:
-
-**Con Python 3:**
 ```bash
-cd "front tecnonoticias"
-python -m http.server 8080
+npm install
+npm start
 ```
-Luego abre <http://localhost:8080>.
 
-**Con Node.js (npx):**
+Luego abre <http://localhost:4200>.
+
+## Publicar en GitHub Pages
+
 ```bash
-npx serve .
+npm run build:gh-pages
 ```
 
-**Con la extensión Live Server de VS Code** (recomendada): botón derecho sobre
-`index.html` → *Open with Live Server*.
+Compila con `--base-href /tecnonoticias/` y deja el sitio en `dist/tecnonoticias/browser`.
+Ese contenido es el que se publica. Si el repositorio tiene otro nombre, hay que cambiar
+`/tecnonoticias/` en el script `build:gh-pages` de `package.json`.
+
+Las rutas usan `#` (por ejemplo `/#/noticias`) para que GitHub Pages no responda 404 al
+recargar una página interna.
+
+En Git Bash, no ejecutes `ng build --base-href /tecnonoticias/` directamente, porque convierte
+la ruta en `C:/Program Files/Git/...`. Usa el script de npm o PowerShell.
 
 ## Autor
 
-David Torres — Politécnico Gran Colombiano — 2026
+Julián David Quintero Herrera — Politécnico Grancolombiano — 2026

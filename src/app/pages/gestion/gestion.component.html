@@ -1,0 +1,159 @@
+<section class="section">
+  <div class="page-header">
+    <div class="page-eyebrow">
+      <span class="page-eyebrow-line"></span>
+      <span class="page-eyebrow-text">Administración</span>
+    </div>
+    <h1 class="page-title">Gestión de noticias</h1>
+    <p class="page-subtitle">Crea, edita o elimina noticias. Los cambios se guardan en este navegador.</p>
+  </div>
+
+  <div class="gestion-layout">
+    <!-- ===================== CREAR / EDITAR ===================== -->
+    <div class="gestion-panel" id="form-noticia" [class.gestion-panel-edicion]="editando()">
+      <!-- El titulo del formulario cambia segun el modo (crear o editar) -->
+      @if (editando(); as e) {
+        <h2 class="gestion-titulo">Editar noticia</h2>
+        <p class="gestion-editando">Editando: <strong>{{ e.title }}</strong></p>
+      } @else {
+        <h2 class="gestion-titulo">Nueva noticia</h2>
+      }
+
+      @if (aviso(); as a) {
+        <div class="gestion-aviso">
+          {{ a.texto }} <strong>{{ a.noticia.title }}</strong>.
+          <a [routerLink]="['/noticia', a.noticia.id]">Ver noticia →</a>
+        </div>
+      }
+
+      <form class="contact-form" (ngSubmit)="guardar()" novalidate>
+        <div class="form-field" [class.has-error]="errores().title">
+          <label for="n-title">Título <span class="required">*</span></label>
+          <input id="n-title" name="title" type="text" placeholder="Ej: Nueva generación de chips cuánticos"
+                 [(ngModel)]="form.title" (ngModelChange)="limpiarError('title')">
+          <div class="form-error">{{ errores().title }}</div>
+        </div>
+
+        <div class="form-field" [class.has-error]="errores().subtitle">
+          <label for="n-subtitle">Descripción breve <span class="required">*</span></label>
+          <input id="n-subtitle" name="subtitle" type="text" placeholder="Resumen que aparece en la tarjeta"
+                 [(ngModel)]="form.subtitle" (ngModelChange)="limpiarError('subtitle')">
+          <div class="form-error">{{ errores().subtitle }}</div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field" [class.has-error]="errores().category">
+            <label for="n-category">Categoría <span class="required">*</span></label>
+            <select id="n-category" name="category" [(ngModel)]="form.category" (ngModelChange)="limpiarError('category')">
+              <option value="" disabled>Selecciona…</option>
+              @for (categoria of categorias; track categoria) {
+                <option [value]="categoria">{{ categoria }}</option>
+              }
+            </select>
+            <div class="form-error">{{ errores().category }}</div>
+          </div>
+          <div class="form-field" [class.has-error]="errores().author">
+            <label for="n-author">Autor <span class="required">*</span></label>
+            <input id="n-author" name="author" type="text" placeholder="Nombre del autor"
+                   [(ngModel)]="form.author" (ngModelChange)="limpiarError('author')">
+            <div class="form-error">{{ errores().author }}</div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field" [class.has-error]="errores().minutos">
+            <label for="n-minutos">Tiempo de lectura (min) <span class="required">*</span></label>
+            <input id="n-minutos" name="minutos" type="number" min="1" max="60"
+                   [(ngModel)]="form.minutos" (ngModelChange)="limpiarError('minutos')">
+            <div class="form-error">{{ errores().minutos }}</div>
+          </div>
+          <div class="form-field">
+            <label for="n-imagen">Imagen <span class="required">*</span></label>
+            <select id="n-imagen" name="imagen" [(ngModel)]="form.imagen">
+              @for (img of imagenesLocales; track img.ruta) {
+                <option [value]="img.ruta">{{ img.nombre }}</option>
+              }
+              <option [value]="URL_EXTERNA">Otra imagen (URL)…</option>
+            </select>
+          </div>
+        </div>
+
+        @if (form.imagen === URL_EXTERNA) {
+          <div class="form-field" [class.has-error]="errores().imagenUrl">
+            <label for="n-imagenUrl">URL de la imagen <span class="required">*</span></label>
+            <input id="n-imagenUrl" name="imagenUrl" type="url" placeholder="https://…"
+                   [(ngModel)]="form.imagenUrl" (ngModelChange)="limpiarError('imagenUrl')">
+            <div class="form-error">{{ errores().imagenUrl }}</div>
+          </div>
+        }
+
+        <!-- Vista previa: [src] se actualiza en vivo con la imagen elegida -->
+        @if (imagenFinal) {
+          <div class="gestion-preview"><img [src]="imagenFinal" alt="Vista previa de la imagen"></div>
+        }
+
+        <div class="form-field" [class.has-error]="errores().cuerpo">
+          <label for="n-cuerpo">Contenido <span class="required">*</span></label>
+          <textarea id="n-cuerpo" name="cuerpo" rows="7" placeholder="Texto completo. Deja una línea en blanco entre párrafos."
+                    [(ngModel)]="form.cuerpo" (ngModelChange)="limpiarError('cuerpo')"></textarea>
+          <div class="form-error">{{ errores().cuerpo }}</div>
+        </div>
+
+        <label class="form-check">
+          <input type="checkbox" name="featured" [(ngModel)]="form.featured">
+          Mostrar en la Portada del inicio (destacada)
+        </label>
+
+        <div class="gestion-botones">
+          @if (editando()) {
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            <button type="button" class="btn btn-outline" (click)="cancelarEdicion()">Cancelar</button>
+          } @else {
+            <button type="submit" class="btn btn-primary">Crear noticia</button>
+            <button type="button" class="btn btn-outline" (click)="limpiarFormulario()">Limpiar</button>
+          }
+        </div>
+      </form>
+    </div>
+
+    <!-- ===================== LISTAR / EDITAR / ELIMINAR ===================== -->
+    <div class="gestion-panel">
+      <div class="gestion-cabecera-lista">
+        <h2 class="gestion-titulo">Noticias publicadas ({{ noticias.noticias().length }})</h2>
+        @if (noticias.totalModificadas() > 0) {
+          <button type="button" class="btn-link" (click)="restaurar()" title="Deshace ediciones y eliminaciones de las noticias originales">
+            Restaurar originales ({{ noticias.totalModificadas() }})
+          </button>
+        }
+      </div>
+
+      <ul class="gestion-lista">
+        @for (n of noticias.noticias(); track n.id) {
+          <li class="gestion-item" [class.gestion-item-activo]="editando()?.id === n.id">
+            <img [src]="n.image" [alt]="n.title" loading="lazy">
+            <div class="gestion-item-info">
+              <span class="badge" [class]="badgeClass(n.category)">{{ n.category }}</span>
+              <a [routerLink]="['/noticia', n.id]" class="gestion-item-titulo">{{ n.title }}</a>
+              <span class="gestion-item-meta">
+                {{ n.date }} · {{ n.author }}
+                @if (n.featured) { · Destacada }
+                @if (n.custom) { · <em>Creada por ti</em> }
+                @else if (noticias.fueEditada(n.id)) { · <em>Editada</em> }
+              </span>
+            </div>
+            <div class="gestion-item-acciones">
+              <button type="button" class="btn-editar" (click)="editar(n)" [attr.aria-label]="'Editar ' + n.title">
+                Editar
+              </button>
+              <button type="button" class="btn-eliminar" (click)="eliminar(n)" [attr.aria-label]="'Eliminar ' + n.title">
+                Eliminar
+              </button>
+            </div>
+          </li>
+        } @empty {
+          <li class="estado-mensaje">No hay noticias. Crea una con el formulario.</li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

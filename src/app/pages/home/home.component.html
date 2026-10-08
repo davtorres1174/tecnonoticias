@@ -1,0 +1,75 @@
+<!-- HERO: etiquetas <section>, <h1>, <em>, <br>, <p>, <img>: visto en Lectura fundamental 2 - HTML -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="img/hero.jpg" alt="Tecnología">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-overlay-2"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-line"></span>
+      <span class="hero-eyebrow-text">El futuro, hoy</span>
+    </div>
+    <h1 class="hero-title">Tecnología que<br><em>transforma</em><br>el mundo.</h1>
+    <p class="hero-subtitle">Análisis riguroso, noticias verificadas y perspectiva editorial sobre los avances tecnológicos que están redefiniendo la civilización.</p>
+    <div class="hero-actions">
+      <a routerLink="/noticias" class="btn btn-primary">Explorar noticias</a>
+      <a routerLink="/contacto" class="btn btn-outline">Contactar</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- @if muestra u oculta bloques segun una condicion (equivale a *ngIf, Lectura fundamental 7) -->
+@if (noticias.cargando()) {
+  <p class="estado-mensaje">Cargando noticias…</p>
+} @else if (noticias.error()) {
+  <p class="estado-mensaje">{{ noticias.error() }}</p>
+} @else {
+  <!-- PORTADA: noticias con featured = true -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-title">
+        <span class="section-title-bar"></span>
+        <h2>Portada</h2>
+      </div>
+      <a routerLink="/noticias" class="section-link">Ver todas →</a>
+    </div>
+    <div class="grid grid-2">
+      @for (noticia of noticias.destacadas(); track noticia.id) {
+        <app-noticia-card [noticia]="noticia" variante="featured" />
+      } @empty {
+        <p class="estado-mensaje">No hay noticias destacadas.</p>
+      }
+    </div>
+  </section>
+
+  <!-- MAS NOTICIAS: el resto de noticias -->
+  @if (noticias.noDestacadas().length > 0) {
+    <section class="section section-sin-top">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="section-title-bar"></span>
+          <h2>Más noticias</h2>
+        </div>
+      </div>
+      <div class="grid grid-4">
+        @for (noticia of noticias.noDestacadas(); track noticia.id) {
+          <app-noticia-card [noticia]="noticia" />
+        }
+      </div>
+    </section>
+  }
+}
+
+<!-- CTA BANNER -->
+<section class="section section-sin-top">
+  <div class="cta-banner">
+    <div class="cta-banner-content">
+      <h3 class="cta-banner-title">No te pierdas ninguna historia.</h3>
+      <p class="cta-banner-text">Guarda tus artículos favoritos y accede a ellos cuando quieras.</p>
+    </div>
+    <a routerLink="/favoritos" class="btn-white">Mis favoritos</a>
+  </div>
+</section>

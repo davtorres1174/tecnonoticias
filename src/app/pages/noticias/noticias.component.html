@@ -1,0 +1,40 @@
+<section class="section">
+  <div class="page-header">
+    <div class="page-eyebrow">
+      <span class="page-eyebrow-line"></span>
+      <span class="page-eyebrow-text">Catálogo</span>
+    </div>
+    <h1 class="page-title">Todas las noticias</h1>
+  </div>
+
+  <!-- Filtros por categoria: [class.active] marca el filtro seleccionado y (click) lo cambia -->
+  <div class="filters" role="group" aria-label="Filtrar por categoría">
+    @for (categoria of categorias; track categoria) {
+      <button
+        type="button"
+        class="filter-btn"
+        [class.active]="categoria === categoriaActiva()"
+        [attr.aria-pressed]="categoria === categoriaActiva()"
+        (click)="filtrar(categoria)"
+      >
+        {{ categoria }}
+      </button>
+    }
+  </div>
+
+  <!-- @if / @for son el control de flujo actual de Angular y equivalen a las directivas
+       estructurales *ngIf y *ngFor: visto en Lectura fundamental 7 - Framework Angular (Directivas) -->
+  @if (noticias.cargando()) {
+    <p class="estado-mensaje">Cargando noticias…</p>
+  } @else if (noticias.error()) {
+    <p class="estado-mensaje">{{ noticias.error() }}</p>
+  } @else {
+    <div class="grid grid-3">
+      @for (noticia of filtradas(); track noticia.id) {
+        <app-noticia-card [noticia]="noticia" />
+      } @empty {
+        <p class="estado-mensaje grid-completa">No hay noticias en esta categoría.</p>
+      }
+    </div>
+  }
+</section>

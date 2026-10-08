@@ -1,0 +1,35 @@
+<!-- Etiqueta semantica <footer> y listas <ul>/<li>: visto en Lectura fundamental 2 - HTML -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-cols">
+      <div class="footer-col">
+        <a routerLink="/" class="brand">
+          <app-logo texto="PRESS" />
+        </a>
+        <p>El periódico digital de referencia para los profesionales de la tecnología en español. Periodismo riguroso, análisis profundo.</p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Secciones</h4>
+        <ul class="footer-list">
+          <li><a routerLink="/">Inicio</a></li>
+          <li><a routerLink="/noticias">Noticias</a></li>
+          <li><a routerLink="/favoritos">Favoritos</a></li>
+          <li><a routerLink="/gestion">Gestión</a></li>
+          <li><a routerLink="/contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Categorías</h4>
+        <ul class="footer-list">
+          @for (categoria of categorias; track categoria) {
+            <li><span>{{ categoria }}</span></li>
+          }
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© {{ anio }} TecnoPress. Todos los derechos reservados.</span>
+      <span>Politécnico Gran Colombiano · Materia Frontend 2026</span>
+    </div>
+  </div>
+</footer>
