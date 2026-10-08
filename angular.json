@@ -80,6 +80,13 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "gh-pages": {
+              "outputPath": {
+                "base": "docs",
+                "browser": ""
+              },
+              "baseHref": "/tecnonoticias/"
             }
           },
           "defaultConfiguration": "production"

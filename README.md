@@ -73,19 +73,25 @@ Luego abre <http://localhost:4200>.
 
 ## Publicar en GitHub Pages
 
-```bash
-npm run build:gh-pages
-```
+El sitio se publica desde la carpeta `docs/` de la rama `RamaAngular`.
 
-Compila con `--base-href /tecnonoticias/` y deja el sitio en `dist/tecnonoticias/browser`.
-Ese contenido es el que se publica. Si el repositorio tiene otro nombre, hay que cambiar
-`/tecnonoticias/` en el script `build:gh-pages` de `package.json`.
+1. Compila:
+
+   ```bash
+   npm run build:gh-pages
+   ```
+
+   Usa la configuración `gh-pages` de `angular.json`: compila en modo producción, con
+   `baseHref` `/tecnonoticias/`, directo en `docs/`, y crea `docs/.nojekyll` para que
+   GitHub no procese el sitio con Jekyll.
+2. Haz commit de la carpeta `docs/` y súbela con `git push`.
+3. En GitHub, en *Settings → Pages*, elige la rama `RamaAngular` y la carpeta `/docs`.
+
+Cada vez que cambies el código, repite los pasos 1 y 2.
 
 Las rutas usan `#` (por ejemplo `/#/noticias`) para que GitHub Pages no responda 404 al
-recargar una página interna.
-
-En Git Bash, no ejecutes `ng build --base-href /tecnonoticias/` directamente, porque convierte
-la ruta en `C:/Program Files/Git/...`. Usa el script de npm o PowerShell.
+recargar una página interna. Si el repositorio cambia de nombre, actualiza `baseHref` en la
+configuración `gh-pages` de `angular.json`.
 
 ## Autor
 
